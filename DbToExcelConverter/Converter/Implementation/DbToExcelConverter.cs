@@ -21,9 +21,8 @@ namespace DbToExcelConverter.Converter.Implementation
         }
         public string Convert<IntervalDataViewModel>(List<IntervalDataViewModel> intervalDataViewModel)
         {            
-            //var file = new FileInfo(Path.Combine(rootFolder, DateTime.Now.ToString("yyyyMMddHHmmssfff") + fileName));
-            var file = new FileInfo(Path.Combine(rootFolder,   fileName));
-
+            var file = new FileInfo(Path.Combine(rootFolder, DateTime.Now.ToString("yyyyMMddHHmmssfff") + fileName));
+            
             using (ExcelPackage package = new ExcelPackage(file))
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Hourly");
@@ -48,7 +47,7 @@ namespace DbToExcelConverter.Converter.Implementation
                     i++;
                 }
 
-                package.Save();
+                 package.Save();
             }
 
             return file.ToString();
